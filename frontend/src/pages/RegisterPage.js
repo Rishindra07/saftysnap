@@ -24,7 +24,7 @@ export default function RegisterPage() {
     }
     
     try {
-      await axios.post("http://localhost:5000/api/auth/register",{name,email,password});
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,{name,email,password});
       navigate("/login");
     } catch(err) {
       setError(err.response?.data?.error?.message || "Registration failed");

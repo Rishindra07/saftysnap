@@ -10,13 +10,13 @@ export default function AnalyticsPage() {
 
   useEffect(() => {
     const fetchAll = async () => {
-      const labelsRes = await axios.get("http://localhost:5000/api/images/labels/all", {
+      const labelsRes = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/images/labels/all`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
       });
 
       const data = {};
       for (let label of labelsRes.data.labels) {
-        const res = await axios.get(`http://localhost:5000/api/images?limit=1000&offset=0&label=${label}`, {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/images?limit=1000&offset=0&label=${label}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
         });
         data[label] = res.data.items.length;

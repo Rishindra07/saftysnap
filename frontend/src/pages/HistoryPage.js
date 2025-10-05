@@ -9,7 +9,7 @@ export default function HistoryPage() {
 
   const fetchImages = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/images?limit=${limit}&offset=${offset}`,
+      `${process.env.REACT_APP_BACKEND_URL}/api/images?limit=${limit}&offset=${offset}`,
       { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
     );
     setImages(res.data.items);
@@ -47,7 +47,7 @@ export default function HistoryPage() {
             }}
           >
             <img
-              src={`http://localhost:5000/${img.fileUrl}`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/${img.fileUrl}`}
               alt={img.filename}
               style={{width:"100%", height:"150px", objectFit:"cover", borderRadius:"8px", marginBottom:"15px"}}
             />

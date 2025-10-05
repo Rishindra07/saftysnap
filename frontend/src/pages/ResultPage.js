@@ -7,7 +7,7 @@ export default function ResultPage() {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/images/${id}`, {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/images/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
     }).then(res => setImage(res.data));
   }, [id]);
@@ -33,7 +33,7 @@ export default function ResultPage() {
       <div style={{maxWidth:"800px", margin:"0 auto"}}>
         <div style={{position:"relative", display:"inline-block", marginBottom:"20px"}}>
           <img
-            src={`http://localhost:5000/${image.fileUrl}`}
+            src={`${process.env.REACT_APP_BACKEND_URL}/${image.fileUrl}`}
             alt={image.filename}
             style={{maxWidth:"500px", borderRadius:"12px", boxShadow:"0 4px 6px rgba(0,0,0,0.1)"}}
           />

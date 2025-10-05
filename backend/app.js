@@ -8,14 +8,7 @@ const authRoute = require("./routes/auth");
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://your-frontend-url.vercel.app', // Replace with your actual frontend URL
-    'https://your-frontend-url.netlify.app'  // Replace with your actual frontend URL
-  ],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(rateLimiter);
