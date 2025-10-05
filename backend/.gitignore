@@ -118,8 +118,6 @@ temp/
 ehthumbs.db
 Thumbs.db
 
-# Uploads directory (user uploaded files)
-uploads/
 
 # Database files
 *.db
