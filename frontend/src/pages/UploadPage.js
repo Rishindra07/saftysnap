@@ -12,7 +12,7 @@ export default function UploadPage() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/images`, formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/images`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Idempotency-Key": Date.now(),

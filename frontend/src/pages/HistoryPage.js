@@ -15,7 +15,7 @@ export default function HistoryPage() {
     setImages(res.data.items);
   };
 
-  useEffect(() => { fetchImages(); }, [offset]);
+  useEffect(() => { fetchImages(); }, [fetchImages]);
 
   return (
     <div style={{padding:"20px", textAlign:"center"}}>
