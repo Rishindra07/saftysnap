@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 export default function HistoryPage() {
   const [images, setImages] = useState([]);
   const [offset, setOffset] = useState(0);
-  const limit = 5;
+  const limit = 6;
 
+  useEffect(() => {
   const fetchImages = async () => {
     const res = await axios.get(
       `${process.env.REACT_APP_BACKEND_URL}/api/images?limit=${limit}&offset=${offset}`,
@@ -15,7 +16,9 @@ export default function HistoryPage() {
     setImages(res.data.items);
   };
 
-  useEffect(() => { fetchImages(); }, [fetchImages]);
+  fetchImages();
+}, [offset]); // include offset because you update it with Previous/Next buttons
+
 
   return (
     <div style={{padding:"20px", textAlign:"center"}}>
