@@ -120,6 +120,7 @@ router.get("/", auth, async (req, res) => {
  * GET /api/images/:id
  */
 router.get("/:id", auth, async (req, res) => {
+  
   const image = await Image.findById(req.params.id);
   if (!image) return res.status(404).json({ error: { code: "NOT_FOUND", message: "Image not found" } });
   res.json(image);

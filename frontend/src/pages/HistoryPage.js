@@ -47,7 +47,7 @@ export default function HistoryPage() {
             }}
           >
             <img
-              src={`${process.env.REACT_APP_BACKEND_URL}/${img.fileUrl}`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/uploads/${img.fileUrl}`}
               alt={img.filename}
               style={{width:"100%", height:"150px", objectFit:"cover", borderRadius:"8px", marginBottom:"15px"}}
             />
